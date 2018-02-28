@@ -1,0 +1,139 @@
+
+syntax on
+set backspace=indent,eol,start
+set nu si ci ai mouse=a sw=4 sts=4 ts=4
+set hlsearch incsearch
+colorscheme desert
+set guifont=Consolas:h14
+set report=0 showmatch cursorline
+set guioptions-=m
+set guioptions-=T
+nmap<F3> : vs %<.in <CR>
+nmap<F4> : ! %< < %<.in <CR>
+nmap<F5> : ! java %< < %<.in <CR>
+nmap<F6> : vs %<.out <CR>
+"nmap<F9> : !g++ % -o %< <CR>
+"nmap<F10> : ! %< <CR>
+
+map <F9> :call InitCompile()<CR>
+func! InitCompile()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+	elseif &filetype == 'java' 
+		exec "!javac %" 
+	elseif &filetype == 'sh'
+		:!./%
+	endif
+endfunc
+
+map <F10> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "! %<"
+	elseif &filetype == 'cpp'
+		exec "! %<"
+	elseif &filetype == 'java' 
+		exec "! java %<"
+	elseif &filetype == 'sh'
+		:!./%
+	endif
+endfunc
+
+"语言设置
+set encoding=utf-8  
+set termencoding=utf-8   
+"set fileencoding=chinese 
+"set fileencodings=ucs-bom,utf-8,chinese   
+"set langmenu=zh_CN.utf-8  
+"source $VIMRUNTIME/delmenu.vim  
+"source $VIMRUNTIME/menu.vim
+language messages zh_cn.utf-8   
+
+"树形目录开关
+map <F12> :NERDTreeMirror<CR> 
+map <F12> :NERDTreeToggle<CR>   
+let NERDTreeSortOrder=['//$','/.cpp$','/.c$', '/.h$', '*']
+
+"代码补全 
+"set completeopt=preview,menu 
+
+"复制粘贴控制 
+"vmap <C-c> "+yi 
+nmap<C-A> ggvG
+vmap<C-C> "*y
+vmap <C-x> "+c 
+vmap <C-v> c<ESC>"+p 
+imap <C-v> <ESC>"+pa 
+
+set autoindent "自动缩进
+set smartindent "智能缩进
+
+:cd E:\vimcode
+""inoremap ( ()<ESC>i
+""inoremap [ []<ESC>i
+""inoremap { {}<ESC>i
+""inoremap " ""<ESC>i
+""inoremap ' ''<ESC>i
+
+set lines=40 "窗口多长，下为多宽
+set columns=100
+set scrolloff=3 
+" 光标移动到buffer的顶部和底部时保持3行距离
+au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 234)   "自动透明
+
+"按<F2>自动生成代码设置
+if !exists("*SetTitlea")
+map <F2> :call SetTitlea()<CR>
+func SetTitlea()
+let l = 0
+let l = l + 1 | call setline(l,'/**********************************************')
+let l = l + 1 | call setline(l,' *Author*        :ZZZZone')
+let l = l + 1 | call setline(l,' *Created Time*  : '.strftime('%c'))
+let l = l + 1 | call setline(l,'')
+"let l = l + 1 | call setline(l,'**Problem**:')
+"let l = l + 1 | call setline(l,'**Analyse**:')
+"let l = l + 1 | call setline(l,'**Get**:')
+"let l = l + 1 | call setline(l,'**Code**:')
+let l = l + 1 | call setline(l,'*********************************************/')
+let l = l + 1 | call setline(l,'')
+let l = l + 1 | call setline(l,'#include <cstdio>')
+let l = l + 1 | call setline(l,'#include <cstring>')
+let l = l + 1 | call setline(l,'#include <iostream>')
+let l = l + 1 | call setline(l,'#include <algorithm>')
+let l = l + 1 | call setline(l,'#include <vector>')
+let l = l + 1 | call setline(l,'#include <queue>')
+let l = l + 1 | call setline(l,'#include <set>')
+let l = l + 1 | call setline(l,'#include <map>')
+let l = l + 1 | call setline(l,'#include <string>')
+let l = l + 1 | call setline(l,'#include <cmath>')
+let l = l + 1 | call setline(l,'#include <cstdlib>')
+let l = l + 1 | call setline(l,'#include <ctime>')
+let l = l + 1 | call setline(l,'#include <stack>')
+let l = l + 1 | call setline(l,'using namespace std;')
+let l = l + 1 | call setline(l,'typedef pair<int, int> PII;')
+let l = l + 1 | call setline(l,'typedef long long LL;')
+let l = l + 1 | call setline(l,'typedef unsigned long long ULL;')
+let l = l + 1 | call setline(l,'')
+let l = l + 1 | call setline(l,'inline void OPEN(string s){')
+let l = l + 1 | call setline(l,'	freopen((s + ".in").c_str(), "r", stdin);')
+let l = l + 1 | call setline(l,'	freopen((s + ".out").c_str(), "w", stdout);')
+let l = l + 1 | call setline(l,'}')
+let l = l + 1 | call setline(l,'')
+let l = l + 1 | call setline(l,'int main()')
+let l = l + 1 | call setline(l,'{')
+let l = l + 1 | call setline(l,'    return 0;')
+let l = l + 1 | call setline(l,'}')
+endfunc
+endif
+
+"完成时间
+if !exists("*FinishTime")
+map<F1> : call FinishTime()<CR>
+func FinishTime()
+let l = 4 | call setline(l,' *Ended  Time*  : '.strftime('%c'))
+endfunc
+endif
