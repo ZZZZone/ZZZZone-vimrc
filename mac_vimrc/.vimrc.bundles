@@ -1,0 +1,28 @@
+set nocompatible    " be iMproved, required
+filetype off        " requried
+set rtp+=~/.vim/bundle/vundle/
+
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+" 树形目录
+Bundle "scrooloose/nerdtree"
+" 自动补全
+"Bundle 'Valloric/YouCompleteMe'
+" 状态栏
+Bundle "Lokaltog/vim-powerline"
+" markdwon高亮
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" markdown实时预览
+"第一个是支持数学公式
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
+
+" .... 其他插件
+
+call vundle#end()
+" required
+"filetype plugin indent on
+
