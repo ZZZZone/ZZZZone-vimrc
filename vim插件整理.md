@@ -232,7 +232,7 @@ func! CompileRunGcc()
 endfunc
 ```
 
-###Ubuntu
+### Ubuntu
 Ubuntu的配置跟mac的vimrc就大同小异了， 基本是完全相同的。  读者可以自行修改尝试。 而且我刚使用Ubuntu没多长时间， 以后再慢慢更新。
 
 
