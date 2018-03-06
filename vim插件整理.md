@@ -84,7 +84,7 @@ func! InitCompile()
 	elseif &filetype == 'cpp'
 		exec "!clear && g++ % -o %<"
 	elseif &filetype == 'java' 
-		exec "!javac %" 
+		exec "!clear && javac %" 
 	elseif &filetype == 'sh'
 		:!./%
 	endif
