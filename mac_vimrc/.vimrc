@@ -44,9 +44,13 @@ set backspace=indent,eol,start
 set nu ai ci si sts=4 ts=4 sw=4 mouse=a
 
 nmap<F3> : vs %<.in <CR>
+"
 nmap<F4> : !clear && time ./%< < %<.in <CR>
+"
 nmap<F5> : !clear && time java %< < %<.in <CR>
+"
 nmap<F6> : vs %<.out <CR>
+"
 
 
 map <F9> :call InitCompile()<CR>
@@ -56,7 +60,7 @@ func! InitCompile()
 	elseif &filetype == 'cpp'
 		exec "!clear && g++ % -o %<"
 	elseif &filetype == 'java' 
-		exec "!javac %" 
+		exec "!clear && javac %" 
 	elseif &filetype == 'sh'
 		:!./%
 	endif
