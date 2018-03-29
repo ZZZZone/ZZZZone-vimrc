@@ -43,25 +43,25 @@ func! CompileRunGcc()
 	endif
 endfunc
 
-"ÓïÑÔÉèÖÃ
+"è¯­è¨€è®¾ç½®
 set encoding=utf-8  
 set termencoding=utf-8   
 "set fileencoding=chinese 
 "set fileencodings=ucs-bom,utf-8,chinese   
 "set langmenu=zh_CN.utf-8  
-"source $VIMRUNTIME/delmenu.vim  
+source $VIMRUNTIME/delmenu.vim  
 "source $VIMRUNTIME/menu.vim
 language messages zh_cn.utf-8   
 
-"Ê÷ĞÎÄ¿Â¼¿ª¹Ø
+"æ ‘å½¢ç›®å½•å¼€å…³
 map <F12> :NERDTreeMirror<CR> 
 map <F12> :NERDTreeToggle<CR>   
 let NERDTreeSortOrder=['//$','/.cpp$','/.c$', '/.h$', '*']
 
-"´úÂë²¹È« 
+"ä»£ç è¡¥å…¨ 
 "set completeopt=preview,menu 
 
-"¸´ÖÆÕ³Ìù¿ØÖÆ 
+"å¤åˆ¶ç²˜è´´æ§åˆ¶ 
 "vmap <C-c> "+yi 
 nmap<C-A> ggvG
 vmap<C-C> "*y
@@ -69,8 +69,8 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p 
 imap <C-v> <ESC>"+pa 
 
-set autoindent "×Ô¶¯Ëõ½ø
-set smartindent "ÖÇÄÜËõ½ø
+set autoindent "è‡ªåŠ¨ç¼©è¿›
+set smartindent "æ™ºèƒ½ç¼©è¿›
 
 :cd E:\vimcode
 ""inoremap ( ()<ESC>i
@@ -79,13 +79,13 @@ set smartindent "ÖÇÄÜËõ½ø
 ""inoremap " ""<ESC>i
 ""inoremap ' ''<ESC>i
 
-set lines=40 "´°¿Ú¶à³¤£¬ÏÂÎª¶à¿í
+set lines=40 "çª—å£å¤šé•¿ï¼Œä¸‹ä¸ºå¤šå®½
 set columns=100
 set scrolloff=3 
-" ¹â±êÒÆ¶¯µ½bufferµÄ¶¥²¿ºÍµ×²¿Ê±±£³Ö3ĞĞ¾àÀë
-au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 234)   "×Ô¶¯Í¸Ã÷
+" å…‰æ ‡ç§»åŠ¨åˆ°bufferçš„é¡¶éƒ¨å’Œåº•éƒ¨æ—¶ä¿æŒ3è¡Œè·ç¦»
+au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 234)   "è‡ªåŠ¨é€æ˜
 
-"°´<F2>×Ô¶¯Éú³É´úÂëÉèÖÃ
+"æŒ‰<F2>è‡ªåŠ¨ç”Ÿæˆä»£ç è®¾ç½®
 if !exists("*SetTitlea")
 map <F2> :call SetTitlea()<CR>
 func SetTitlea()
@@ -131,7 +131,7 @@ let l = l + 1 | call setline(l,'}')
 endfunc
 endif
 
-"Íê³ÉÊ±¼ä
+"å®Œæˆæ—¶é—´
 if !exists("*FinishTime")
 map<F1> : call FinishTime()<CR>
 func FinishTime()
