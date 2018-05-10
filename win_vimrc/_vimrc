@@ -15,6 +15,10 @@ nmap<F6> : vs %<.out <CR>
 "nmap<F9> : !g++ % -o %< <CR>
 "nmap<F10> : ! %< <CR>
 
+
+nmap w,  :vertical resize -5<CR>
+nmap w.  :vertical resize +5<CR>
+
 map <F9> :call InitCompile()<CR>
 func! InitCompile()
 	exec "w"
@@ -43,15 +47,23 @@ func! CompileRunGcc()
 	endif
 endfunc
 
-"语言设置
-set encoding=utf-8  
-set termencoding=utf-8   
-"set fileencoding=chinese 
-"set fileencodings=ucs-bom,utf-8,chinese   
-"set langmenu=zh_CN.utf-8  
-source $VIMRUNTIME/delmenu.vim  
-"source $VIMRUNTIME/menu.vim
+" 语言设置
+"gvim内部编码
+set encoding=utf-8 
+"设置终端编码为gvim内部编码encoding
+let &termencoding=&encoding
+"当前编辑的文件编码
+set fileencoding=utf-8
+"gvim打开支持编码的文件
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set langmenu=zh_CN.UTF-8
+"解决consle输出乱码
 language messages zh_cn.utf-8   
+"菜单栏中文
+source $VIMRUNTIME/delmenu.vim 
+source $VIMRUNTIME/menu.vim
+
+
 
 "树形目录开关
 map <F12> :NERDTreeMirror<CR> 

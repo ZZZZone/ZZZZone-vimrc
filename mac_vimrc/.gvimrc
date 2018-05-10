@@ -172,6 +172,11 @@ func! RJ()
 endfunc
 
 
+nmap w,  :vertical resize -5<CR>
+nmap w.  :vertical resize +5<CR>
+
+
+
 "nmap<F9> : make %< <CR>
 map <F9> :call InitCompile()<CR>
 func! InitCompile()
@@ -208,6 +213,8 @@ endfunc
 
 " 默认路径
 :cd /Users/zong/code/vimcode  
+
+":cd ./
 
 " 树形目录 
 nmap <F12> :NERDTreeToggle<cr>
@@ -255,12 +262,20 @@ set columns= 80
 set scrolloff=3 " 光标移动到buffer的顶部和底部时保持3行距离
 
 " 语言设置
-set langmenu=zh_CN.UTF-8
-scriptencoding utf-8
-set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+"gvim内部编码
+set encoding=utf-8 
+"设置终端编码为gvim内部编码encoding
+let &termencoding=&encoding
+"当前编辑的文件编码
+set fileencoding=utf-8
+"gvim打开支持编码的文件
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8
+set langmenu=zh_CN.UTF-8
+"解决consle输出乱码
+language messages zh_cn.utf-8   
+"菜单栏中文
+source $VIMRUNTIME/delmenu.vim 
+source $VIMRUNTIME/menu.vim
 
 
 autocmd BufWritePost $MYVIMRC source $MYVIMRC 

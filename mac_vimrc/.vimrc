@@ -43,14 +43,17 @@ endif
 set backspace=indent,eol,start
 set nu ai ci si sts=4 ts=4 sw=4 mouse=a
 
-nmap<F3> : vs %<.in <CR>
+nmap<F3> : vs %<.in <CR> 
 "
-nmap<F4> : !clear && time ./%< < %<.in <CR>
+nmap<F4> : !clear && time ./%< < %<.in <CR> 
 "
 nmap<F5> : !clear && time java %< < %<.in <CR>
 "
 nmap<F6> : vs %<.out <CR>
 "
+
+nmap w,  :vertical resize -5<CR>
+nmap w.  :vertical resize +5<CR>
 
 
 map <F9> :call InitCompile()<CR>
@@ -83,7 +86,7 @@ endfunc
 
 
 " 初始默认路径
-:cd /Users/zong/code/vimcode  
+":cd /Users/zong/code/vimcode  
 
 "复制粘贴控制 
 nmap<C-A> ggvG
@@ -102,7 +105,7 @@ set backup "undo?
 set number
 set ruler
 "colorscheme desert
-colorscheme solarized
+"colorscheme solarized
 set background=dark
 set backspace=2
 " set autoindent "自动缩进
