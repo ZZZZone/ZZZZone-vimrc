@@ -181,9 +181,11 @@ nmap w.  :vertical resize +5<CR>
 map <F9> :call InitCompile()<CR>
 func! InitCompile()
 	if &filetype == 'c'
-		exec "!g++ % -o %<"
+		"exec "!g++ % -o %<"
+		exec "make %<"
 	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
+		"exec "!g++ % -o %<"
+		exec "make %<"
 	elseif &filetype == 'java' 
 		exec "!javac %" 
 	elseif &filetype == 'sh'
