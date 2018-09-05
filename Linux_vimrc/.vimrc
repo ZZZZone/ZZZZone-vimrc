@@ -20,7 +20,7 @@ func! InitCompile()
 	if &filetype == 'c'
 		exec "!clear && g++ % -o %<"
 	elseif &filetype == 'cpp'
-		exec "!clear && g++ % -o %<"
+		exec "!clear && g++ -std=c++11 % -o %<"
 	elseif &filetype == 'java' 
 		exec "!clear && javac %" 
 	elseif &filetype == 'sh'
