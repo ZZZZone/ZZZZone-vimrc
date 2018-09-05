@@ -14,10 +14,6 @@ nmap<F5> : !clear && time java %< < %<.in  <CR>
 "
 nmap<F6> : vs %<.out <CR>
 
-nmap w,  :vertical resize -5<CR>
-nmap w.  :vertical resize +5<CR>
-
-
 
 map <F9> :call InitCompile()<CR>
 func! InitCompile()
@@ -36,11 +32,13 @@ map <F10> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
-		exec "!time ./%<"
+		exec "!clear && time ./%<"
 	elseif &filetype == 'cpp'
-		exec "!time ./%<"
+		exec "!clear && time ./%<"
 	elseif &filetype == 'java' 
-		exec "!time java %<"
+		exec "!clear && time java %<"
+	elseif &filetype == 'python' 
+		exec "!clear && time python3 %"
 	elseif &filetype == 'sh'
 		:!./%
 	endif
@@ -93,24 +91,10 @@ set columns=100
 set scrolloff=3 " 光标移动到buffer的顶部和底部时保持3行距离
 set langmenu=zh_CN.UTF-8
 set helplang=cn
-
 " 语言设置
-"gvim内部编码
-set encoding=utf-8 
-"设置终端编码为gvim内部编码encoding
-let &termencoding=&encoding
-"当前编辑的文件编码
-set fileencoding=utf-8
-"gvim打开支持编码的文件
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set langmenu=zh_CN.UTF-8
-"解决consle输出乱码
-language messages zh_cn.utf-8   
-"菜单栏中文
-source $VIMRUNTIME/delmenu.vim 
-source $VIMRUNTIME/menu.vim
-set helplang=cn
 
+set helplang=cn
+set encoding=utf-8
 
 autocmd BufWritePost $MYVIMRC source $MYVIMRC 
 " 让配置变更立即生效
@@ -207,5 +191,4 @@ endif
 " set autoread
 
 " set backspace=” (Vi compatible)
-
 
