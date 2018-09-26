@@ -1,0 +1,15 @@
+set nu ai ci si sts=4 ts=4 sw=4 mouse=a 
+" 行号 自动对齐 ?? 删除tab时宽度 Tab宽度 自动缩进宽度 鼠标支持
+
+nmap<F3> : vs %<.in <CR>
+nmap<F4> : !clear && time ./%< < %<.in  <CR>
+nmap<F6> : vs %<.out <CR>
+
+nmap<F9> : !clear && g++ -std=c++11 % -o %< <CR>
+nmap<F10> : !clear && time ./%< <CR>
+nmap<F12> : !clear && time python3 % <CR>
+
+nmap<C-A> ggvG$
+vmap<C-C> "+y
+nmap<C-v> "+gp
+imap<C-v> <ESC>"+pa
